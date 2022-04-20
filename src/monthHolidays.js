@@ -10,18 +10,14 @@ const monthHolidays = (number) => {
     });
 
 
-    const page = holidays.map(holiday => {
-        const dateAux = dateFomat(new Date(holiday.date));
-        return `<li>${dateAux} - ${holiday.name}</li>`
+    return {
+        month: getMonth(number),
+        holidays: holidays.map(holiday => {
+            const {date, name} = holiday;
+            return {date: dateFomat(date), name}
+        })
     }
-    );
-
-    return `
-        <h1>Feriados do mês de ${getMonth(number)}</h1>
-        <ul>
-        ${page.join('')}
-        </ul>
-    `
+    
 }
 
 export default monthHolidays;

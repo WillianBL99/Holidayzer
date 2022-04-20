@@ -2,16 +2,26 @@ import holidaysList from './utils/holidayList.js';
 import dateFomat from './utils/dateFormat.js';
 
 const isTodayHoliday = () => {
-    const page = holidaysList.map(holiday => {
-        const {date, name} = holiday;
-        const dateAux = dateFomat(new Date(date));
-        return `<li>${dateAux} - ${name}</li>`;
-    })
+    const today = new Date().toLocaleDateString();
+    let holidayName;
+    let info;
+    const isHoliday = holidaysList.some(
+        holiday => {
+            if(holiday.date === today){
+                holidayName = holiday.name;
+                return true;
+            }
+            return false;
+        }
+    );
 
-    return `
-        <h1>Feriados</h1>
-        <ul>${page.join('')}</ul>
-    `;
+    if(isHoliday) {
+        const holiday = holidaysList.filter(hd => hd === today);
+        info = `Sim, hoje é ${holidayName}`;
+
+    } else info = 'Não, hoje não é feriado';
+
+    return {date: dateFomat(today), info};
 }
 
 export default isTodayHoliday;
