@@ -1,4 +1,4 @@
-import holidaysList from './holidayList.js';
+import holidaysList from './utils/holidayList.js';
 
 const holidays = () => {
     const today = new Date().toLocaleDateString();

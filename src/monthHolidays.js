@@ -1,5 +1,6 @@
-import holidaysList from "./holidayList.js";
+import holidaysList from "./utils/holidayList.js";
 import dateFomat from "./utils/dateFormat.js";
+import getMonth from "./utils/getMonthName.js";
 
 const monthHolidays = (number) => {
     const holidays = holidaysList.filter(holiday => {
@@ -16,7 +17,7 @@ const monthHolidays = (number) => {
     );
 
     return `
-        <h1>Feriados do mês</h1>
+        <h1>Feriados do mês de ${getMonth(number)}</h1>
         <ul>
         ${page.join('')}
         </ul>

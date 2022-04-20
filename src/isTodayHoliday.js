@@ -1,4 +1,4 @@
-import holidaysList from './holidayList.js';
+import holidaysList from './utils/holidayList.js';
 import dateFomat from './utils/dateFormat.js';
 
 const isTodayHoliday = () => {
