@@ -1,4 +1,5 @@
 import holidaysList from './utils/holidayList.js';
+import dateFomat from './utils/dateFormat.js';
 
 const holidays = () => {
     return holidaysList.map(holiday => {
